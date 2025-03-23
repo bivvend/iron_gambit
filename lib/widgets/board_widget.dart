@@ -36,6 +36,9 @@ class BoardWidget extends StatelessWidget {
                     onTap: () {
                       bC.selectSquare(row, col);
                     },
+                    onSecondaryTap: () {
+                      bC.actionAtSquare(row, col);
+                    },
                     child: Container(
                         decoration: BoxDecoration(
                             //color: isDarkSquare ? Colors.brown : Colors.white,

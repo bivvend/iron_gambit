@@ -26,6 +26,8 @@ class Piece {
   int energyCost = 0;
   int energyGeneration = 0;
 
+  List<ActionType> actions = [];
+
   Piece({
     required this.type,
     required this.color,
@@ -43,20 +45,27 @@ class Piece {
       moves.add(const MoveDefinition(-1, -1));
       moves.add(const MoveDefinition(0, 1));
       moves.add(const MoveDefinition(0, -1));
+
+      actions.add(ActionType.move);
     }
 
     if (type == PieceType.worker) {
       energyCost = energyCostWorker;
+      actions.add(ActionType.build);
     } else if (type == PieceType.tank) {
       energyCost = energyCostTank;
+      actions.add(ActionType.attack);
     } else if (type == PieceType.gun) {
       energyCost = energyCostGun;
+      actions.add(ActionType.attack);
     } else if (type == PieceType.mech) {
       energyCost = energyCostMech;
+      actions.add(ActionType.attack);
     }
 
     if (type == PieceType.generator) {
       energyGeneration = energyGenerationGenerator;
+      //No actions
     }
   }
 

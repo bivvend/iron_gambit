@@ -94,6 +94,64 @@ class GameControlWidget extends StatelessWidget {
                       ? AutoSizeText("Col: ${gC.selectedPieceCol.value}",
                           maxLines: 1)
                       : Container()),
+              SizedBox(
+                  width: width / 5,
+                  height: height / 30,
+                  child: gC.pieceSelected.value
+                      ? AutoSizeText("Actions: ${gC.selectedPieceActions}",
+                          maxLines: 1)
+                      : Container()),
+              SizedBox(
+                  width: width / 10,
+                  height: height / 10,
+                  child: gC.pieceSelected.value &&
+                          gC.selectedPieceActions.contains(ActionType.move)
+                      ? ElevatedButton(
+                          style: ButtonStyle(
+                              backgroundColor: gC.moveSelected.value
+                                  ? WidgetStateProperty.all(Colors.red)
+                                  : WidgetStateProperty.all(Colors.blue)),
+                          onPressed: () {
+                            gC.moveSelected.value = true;
+                            gC.attackSelected.value = false;
+                            gC.buildSelected.value = false;
+                          },
+                          child: const Text("MOVE"))
+                      : Container()),
+              SizedBox(
+                  width: width / 10,
+                  height: height / 10,
+                  child: gC.pieceSelected.value &&
+                          gC.selectedPieceActions.contains(ActionType.attack)
+                      ? ElevatedButton(
+                          style: ButtonStyle(
+                              backgroundColor: gC.attackSelected.value
+                                  ? WidgetStateProperty.all(Colors.red)
+                                  : WidgetStateProperty.all(Colors.blue)),
+                          onPressed: () {
+                            gC.moveSelected.value = false;
+                            gC.attackSelected.value = true;
+                            gC.buildSelected.value = false;
+                          },
+                          child: const Text("ATTACK"))
+                      : Container()),
+              SizedBox(
+                  width: width / 10,
+                  height: height / 10,
+                  child: gC.pieceSelected.value &&
+                          gC.selectedPieceActions.contains(ActionType.build)
+                      ? ElevatedButton(
+                          style: ButtonStyle(
+                              backgroundColor: gC.buildSelected.value
+                                  ? WidgetStateProperty.all(Colors.red)
+                                  : WidgetStateProperty.all(Colors.blue)),
+                          onPressed: () {
+                            gC.moveSelected.value = false;
+                            gC.attackSelected.value = false;
+                            gC.buildSelected.value = true;
+                          },
+                          child: const Text("BUILD"))
+                      : Container()),
             ],
           );
         }))

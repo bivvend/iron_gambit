@@ -2,6 +2,8 @@ enum PieceType { worker, generator, gun, tank, mech }
 
 enum PieceColor { white, black }
 
+enum ActionType { move, attack, build }
+
 const int boardSize = 9;
 
 //Power drain from running

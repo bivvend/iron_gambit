@@ -109,11 +109,16 @@ class BoardController extends GetxController {
             movesList.add((row2, col2));
           });
           markCanMoveToRange(movesList);
-          gC.selectPiece(piece!.type, row, col);
+          gC.selectPiece(piece!.type, piece!.actions, row, col);
         }
       }
     }
     displayBoardState.selected.refresh();
+  }
+
+  actionAtSquare(int row, int col) {
+    //Check the square is valid, contains a piece from your team.
+    if (_checkInBounds(row, col)) {}
   }
 
   bool _checkInBounds(int col, int row) {
