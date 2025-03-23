@@ -56,6 +56,44 @@ class GameControlWidget extends StatelessWidget {
                         "Max Energy: ${gC.whitePlayer.value.powerStorage}",
                         maxLines: 1),
               ),
+              SizedBox(
+                  width: width / 5,
+                  height: height / 30,
+                  child: gC.pieceSelected.value
+                      ? AutoSizeText(
+                          "Piece selected: ${gC.selectedPieceType.value.name}",
+                          maxLines: 1)
+                      : Container()),
+              SizedBox(
+                  width: width / 5,
+                  height: height / 30,
+                  child: gC.pieceSelected.value
+                      ? AutoSizeText(
+                          "Energy Cost: ${gC.selectedPieceEnergyCost.value}",
+                          maxLines: 1)
+                      : Container()),
+              SizedBox(
+                  width: width / 5,
+                  height: height / 30,
+                  child: gC.pieceSelected.value
+                      ? AutoSizeText(
+                          "Energy Generation: ${gC.selectedPieceEnergyGeneration.value}",
+                          maxLines: 1)
+                      : Container()),
+              SizedBox(
+                  width: width / 5,
+                  height: height / 30,
+                  child: gC.pieceSelected.value
+                      ? AutoSizeText("Row: ${gC.selectedPieceRow.value}",
+                          maxLines: 1)
+                      : Container()),
+              SizedBox(
+                  width: width / 5,
+                  height: height / 30,
+                  child: gC.pieceSelected.value
+                      ? AutoSizeText("Col: ${gC.selectedPieceCol.value}",
+                          maxLines: 1)
+                      : Container()),
             ],
           );
         }))

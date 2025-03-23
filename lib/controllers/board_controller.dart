@@ -109,6 +109,7 @@ class BoardController extends GetxController {
             movesList.add((row2, col2));
           });
           markCanMoveToRange(movesList);
+          gC.selectPiece(piece!.type, row, col);
         }
       }
     }
